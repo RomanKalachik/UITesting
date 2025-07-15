@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace MortgageCalculator;
+namespace MortgageCalculator.ViewModels;
 
 public sealed class MortgageCalculatorViewModel : INotifyPropertyChanged
 {
