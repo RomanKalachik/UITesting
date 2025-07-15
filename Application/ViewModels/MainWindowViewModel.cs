@@ -1,4 +1,4 @@
-﻿namespace uitesting.ViewModels;
+﻿namespace MortgageCalculator.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {

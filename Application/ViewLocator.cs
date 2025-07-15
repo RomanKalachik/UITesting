@@ -1,9 +1,9 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using uitesting.ViewModels;
+using MortgageCalculator.ViewModels;
 
-namespace uitesting;
+namespace MortgageCalculator;
 
 public class ViewLocator : IDataTemplate
 {

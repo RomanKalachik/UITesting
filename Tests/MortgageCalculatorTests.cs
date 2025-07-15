@@ -1,6 +1,4 @@
 ﻿
-using uitesting;
-
 namespace MortgageCalculatorTests;
 
 public class MortgageCalculatorTests
@@ -16,14 +14,14 @@ public class MortgageCalculatorTests
         int loanTermYears,
         decimal expectedPayment)
     {
-        var payment = MortgageCalculator.CalculateMonthlyPayment(principal, annualInterestRate, loanTermYears);
+        var payment = MortgageCalculator.SampleMortgageCalculator.CalculateMonthlyPayment(principal, annualInterestRate, loanTermYears);
         Assert.Equal(expectedPayment, payment);
     }
 
     [Fact]
     public void CalculateMonthlyPayment_ZeroInterest_ReturnsSimplePayment()
     {
-        var payment = MortgageCalculator.CalculateMonthlyPayment(120000, 0, 10);
+        var payment = MortgageCalculator.SampleMortgageCalculator.CalculateMonthlyPayment(120000, 0, 10);
         Assert.Equal(1000, payment);
     }
 
@@ -39,7 +37,7 @@ public class MortgageCalculatorTests
         string expectedMessage)
     {
         var ex = Assert.Throws<ArgumentOutOfRangeException>(() =>
-            MortgageCalculator.CalculateMonthlyPayment(principal, annualInterestRate, loanTermYears));
+            MortgageCalculator.SampleMortgageCalculator.CalculateMonthlyPayment(principal, annualInterestRate, loanTermYears));
 
         Assert.Contains(expectedMessage, ex.Message);
     }
@@ -48,7 +46,7 @@ public class MortgageCalculatorTests
     public void GenerateAmortizationSchedule_ValidInputs_ReturnsCorrectSchedule()
     {
         // Test a simple 2-year loan of $1000 at 10% interest
-        var schedule = MortgageCalculator.GenerateAmortizationSchedule(1000, 10, 2);
+        var schedule = MortgageCalculator.SampleMortgageCalculator.GenerateAmortizationSchedule(1000, 10, 2);
 
         // Should have 24 payments
         Assert.Equal(24, schedule.Count);
@@ -73,7 +71,7 @@ public class MortgageCalculatorTests
     [Fact]
     public void GenerateAmortizationSchedule_PrincipalShouldBeZeroAtEnd()
     {
-        var schedule = MortgageCalculator.GenerateAmortizationSchedule(200000, (decimal)3.5, 30);
+        var schedule = MortgageCalculator.SampleMortgageCalculator.GenerateAmortizationSchedule(200000, (decimal)3.5, 30);
         var lastPayment = schedule.Last();
 
         Assert.Equal(0, lastPayment.RemainingBalance);
@@ -87,8 +85,8 @@ public class MortgageCalculatorTests
         var rate = 4M;
         var term = 20;
 
-        var schedule = MortgageCalculator.GenerateAmortizationSchedule(principal, rate, term);
-        var monthlyPayment = MortgageCalculator.CalculateMonthlyPayment(principal, rate, term);
+        var schedule = MortgageCalculator.SampleMortgageCalculator.GenerateAmortizationSchedule(principal, rate, term);
+        var monthlyPayment = MortgageCalculator.SampleMortgageCalculator.CalculateMonthlyPayment(principal, rate, term);
 
         // Sum of all principal payments should equal original principal
         var totalPrincipalPaid = schedule.Sum(p => p.PrincipalAmount);

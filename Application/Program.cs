@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using System;
 
-namespace uitesting;
+namespace MortgageCalculator;
 
 sealed class Program
 {

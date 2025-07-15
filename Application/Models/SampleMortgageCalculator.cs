@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace uitesting;
+namespace MortgageCalculator;
 
-public class MortgageCalculator
+public class SampleMortgageCalculator
 {
     /// <summary>
     /// Calculates the monthly payment for a mortgage
@@ -74,11 +74,11 @@ public class MortgageCalculator
             }
 
             schedule.Add(new PaymentDetail(
-                MonthNumber: month,
-                PaymentAmount: monthlyPayment,
-                PrincipalAmount: principalPayment,
-                InterestAmount: interestPayment,
-                RemainingBalance: remainingBalance > 0 ? remainingBalance : 0
+                month,
+                monthlyPayment,
+                principalPayment,
+                interestPayment,
+                remainingBalance > 0 ? remainingBalance : 0
             ));
         }
 
@@ -86,10 +86,26 @@ public class MortgageCalculator
     }
 }
 
-public record PaymentDetail(
-    int MonthNumber,
-    decimal PaymentAmount,
-    decimal PrincipalAmount,
-    decimal InterestAmount,
-    decimal RemainingBalance
-);
+public class PaymentDetail
+{
+    public int MonthNumber { get; set; }
+    public decimal PaymentAmount { get; set; }
+    public decimal PrincipalAmount { get; set; }
+    public decimal InterestAmount { get; set; }
+    public decimal RemainingBalance { get; set; }
+
+    public PaymentDetail(
+        int monthNumber,
+        decimal paymentAmount,
+        decimal principalAmount,
+        decimal interestAmount,
+        decimal remainingBalance)
+    {
+        MonthNumber = monthNumber;
+        PaymentAmount = paymentAmount;
+        PrincipalAmount = principalAmount;
+        InterestAmount = interestAmount;
+        RemainingBalance = remainingBalance;
+    }
+
+}

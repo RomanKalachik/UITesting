@@ -4,10 +4,10 @@ using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using System.Linq;
 using Avalonia.Markup.Xaml;
-using uitesting.ViewModels;
-using uitesting.Views;
+using MortgageCalculator.Views;
+using MortgageCalculator.ViewModels;
 
-namespace uitesting;
+namespace MortgageCalculator;
 
 public partial class App : Application
 {

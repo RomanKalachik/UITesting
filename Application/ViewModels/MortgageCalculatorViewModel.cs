@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace uitesting;
+namespace MortgageCalculator;
 
 public sealed class MortgageCalculatorViewModel : INotifyPropertyChanged
 {
@@ -80,12 +80,12 @@ public sealed class MortgageCalculatorViewModel : INotifyPropertyChanged
     {
         try
         {
-            MonthlyPayment = MortgageCalculator.CalculateMonthlyPayment(
+            MonthlyPayment = SampleMortgageCalculator.CalculateMonthlyPayment(
                 Principal,
                 AnnualInterestRate,
                 LoanTermYears);
 
-            AmortizationSchedule = MortgageCalculator.GenerateAmortizationSchedule(
+            AmortizationSchedule = SampleMortgageCalculator.GenerateAmortizationSchedule(
                 Principal,
                 AnnualInterestRate,
                 LoanTermYears);

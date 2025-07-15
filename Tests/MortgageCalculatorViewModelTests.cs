@@ -1,7 +1,7 @@
 ﻿// MortgageCalculatorViewModelTests.cs
 using Xunit;
 using System.ComponentModel;
-using uitesting;
+using MortgageCalculator;
 
 namespace MortgageCalculatorTests;
 

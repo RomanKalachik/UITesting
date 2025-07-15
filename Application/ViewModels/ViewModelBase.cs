@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace uitesting.ViewModels;
+namespace MortgageCalculator.ViewModels;
 
 public class ViewModelBase : ObservableObject
 {

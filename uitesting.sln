@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{A74F262E-BDE7-D5D2-89E9-785413424D0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uitesting", "Application\uitesting.csproj", "{4E830559-4F71-4222-917E-5B20908626AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleMortgageCalculator", "Application\SampleMortgageCalculator.csproj", "{4E830559-4F71-4222-917E-5B20908626AD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{8CEDBAB1-D0C3-4D8F-8673-260A6512EA6E}"
 EndProject

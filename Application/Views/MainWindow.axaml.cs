@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace uitesting.Views;
+namespace MortgageCalculator.Views;
 
 public partial class MainWindow : Window
 {
