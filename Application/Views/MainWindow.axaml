@@ -1,6 +1,7 @@
-<Window xmlns="https://github.com/avaloniaui"
+<mx:MxWindow xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:MortgageCalculator.ViewModels"
+		xmlns:mx="https://schemas.eremexcontrols.net/avalonia"
         xmlns:views="using:MortgageCalculator.Views"
 
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -11,4 +12,4 @@
         Title="uitesting">
 
 	<views:MortgageCalculatorView></views:MortgageCalculatorView>
-</Window>
+</mx:MxWindow>

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Eremex.AvaloniaUI.Charts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace MortgageCalculator.ViewModels;
@@ -13,6 +15,26 @@ public sealed class MortgageCalculatorViewModel : INotifyPropertyChanged
     private decimal _monthlyPayment;
     private List<PaymentDetail> _amortizationSchedule = new();
     private PaymentDetail? _selectedPaymentDetail;
+
+    SortedNumericDataAdapter? principialSeriesDataAdapter, interestSeriesDataAdapter, ballanceSeriesDataAdapter;
+
+    public SortedNumericDataAdapter? PrincipialSeriesDataAdapter
+    {
+        get => principialSeriesDataAdapter;
+        set => SetField(ref principialSeriesDataAdapter, value);
+    }
+
+    public SortedNumericDataAdapter? InterestSeriesDataAdapter
+    {
+        get => interestSeriesDataAdapter;
+        set => SetField(ref interestSeriesDataAdapter, value);
+    }
+
+    //public SortedNumericDataAdapter? BallanceSeriesDataAdapter
+    //{
+    //    get => ballanceSeriesDataAdapter;
+    //    set => SetField(ref ballanceSeriesDataAdapter, value);
+    //}
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -95,6 +117,12 @@ public sealed class MortgageCalculatorViewModel : INotifyPropertyChanged
             MonthlyPayment = 0;
             AmortizationSchedule = new List<PaymentDetail>();
         }
+        var argumentList = AmortizationSchedule.Select(s => (double)s.MonthNumber).ToList();
+        InterestSeriesDataAdapter = new SortedNumericDataAdapter(argumentList, AmortizationSchedule.Select(s => (double)s.InterestAmount).ToList());
+        PrincipialSeriesDataAdapter = new SortedNumericDataAdapter(argumentList, AmortizationSchedule.Select(s => (double)s.PrincipalAmount).ToList());
+        
+        //BallanceSeriesDataAdapter = new SortedNumericDataAdapter(argumentList, AmortizationSchedule.Select(s => (double)s.RemainingBalance/100).ToList());
+
     }
 
     private bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
