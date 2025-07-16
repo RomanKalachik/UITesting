@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:mxe="https://schemas.eremexcontrols.net/avalonia/editors"
 			 xmlns:mxc="https://schemas.eremexcontrols.net/avalonia/charts"
+			 xmlns:mxdg="https://schemas.eremexcontrols.net/avalonia/datagrid"
 
 xmlns:sys="clr-namespace:System;assembly=mscorlib"
 			 x:DataType="vm:MortgageCalculatorViewModel"
@@ -17,7 +18,7 @@ xmlns:col="using:System.Collections"
 
 	<Grid Margin="10">
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition></ColumnDefinition>
+			<ColumnDefinition Width="Auto"></ColumnDefinition>
 			<ColumnDefinition></ColumnDefinition>
 		</Grid.ColumnDefinitions>
 		<StackPanel>
@@ -25,7 +26,7 @@ xmlns:col="using:System.Collections"
 				Principal
 			</Label>
 			<StackPanel Orientation="Horizontal">
-				<Slider Value="{Binding Principal}"></Slider>
+				<Slider MinWidth="200" Margin="0,0,10,0" Value="{Binding Principal}"></Slider>
 				<mxe:TextEditor MinWidth="100" EditorValue="{Binding Principal}" ></mxe:TextEditor>
 				<Label VerticalAlignment="Center">USD</Label>
 			</StackPanel>
@@ -34,7 +35,7 @@ xmlns:col="using:System.Collections"
 				Annual interest rate
 			</Label>
 			<StackPanel Orientation="Horizontal">
-				<Slider Value="{Binding AnnualInterestRate}"></Slider>
+				<Slider MinWidth="200" Margin="0,0,10,0" Value="{Binding AnnualInterestRate}"></Slider>
 				<mxe:TextEditor MinWidth="100" EditorValue="{Binding AnnualInterestRate}"></mxe:TextEditor>
 			</StackPanel>
 
@@ -42,16 +43,22 @@ xmlns:col="using:System.Collections"
 				Loan term in years
 			</Label>
 			<StackPanel Orientation="Horizontal">
-				<Slider Value="{Binding LoanTermYears}"></Slider>
+				<Slider MinWidth="200" Margin="0,0,10,0" Value="{Binding LoanTermYears}"></Slider>
 				<mxe:TextEditor MinWidth="100" EditorValue="{Binding LoanTermYears}"></mxe:TextEditor>
 			</StackPanel>
 
 
 		</StackPanel>
-		<StackPanel Grid.Column="1" Background="Yellow">
-			
-			<mxc:CartesianChart Grid.Column="0" Margin="0,40,0,0" Classes="DemoChart" x:Name="DemoControl">
-				
+		<Grid Margin="10,30,10,10"  Grid.Column="1">
+			<Grid.RowDefinitions>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+			</Grid.RowDefinitions>
+			<mxdg:DataGridControl x:Name="dataGrid" ItemsSource="{Binding AmortizationSchedule}"
+			 AutoGenerateColumns="True" BorderThickness="1,1">
+			</mxdg:DataGridControl>
+			<mxc:CartesianChart Margin="0,10,0,0" Grid.Row="1" x:Name="chartControl">
+
 				<mxc:CartesianChart.AxesX>
 					<mxc:AxisX ShowTitle="False" />
 				</mxc:CartesianChart.AxesX>
@@ -60,7 +67,8 @@ xmlns:col="using:System.Collections"
 				</mxc:CartesianChart.AxesY>
 			</mxc:CartesianChart>
 
-		</StackPanel>
+		</Grid>
+
 	</Grid>
 	
 </UserControl>

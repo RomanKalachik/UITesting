@@ -1,5 +1,4 @@
-﻿// MortgageCalculator.cs
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace MortgageCalculator;
@@ -61,7 +60,6 @@ public class SampleMortgageCalculator
             var interestPayment = remainingBalance * monthlyRate;
             var principalPayment = monthlyPayment - interestPayment;
 
-            // Adjust final payment to account for any rounding differences
             if (month == loanTermYears * 12)
             {
                 principalPayment = remainingBalance;
