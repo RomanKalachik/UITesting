@@ -10,13 +10,15 @@ namespace MortgageCalculator.ViewModels;
 public sealed class MortgageCalculatorViewModel : INotifyPropertyChanged
 {
     private decimal _principal = 300000m;
-    private decimal _annualInterestRate = 4.5m;
+    private decimal _annualInterestRate = 15;
     private int _loanTermYears = 30;
     private decimal _monthlyPayment;
+    private bool isStachkaVisitor, isLinuxUser, isItEnthusiast;
+
     private List<PaymentDetail> _amortizationSchedule = new();
     private PaymentDetail? _selectedPaymentDetail;
 
-    SortedNumericDataAdapter? principialSeriesDataAdapter, interestSeriesDataAdapter, ballanceSeriesDataAdapter;
+    SortedNumericDataAdapter? principialSeriesDataAdapter, interestSeriesDataAdapter;
 
     public SortedNumericDataAdapter? PrincipialSeriesDataAdapter
     {
@@ -30,12 +32,7 @@ public sealed class MortgageCalculatorViewModel : INotifyPropertyChanged
         set => SetField(ref interestSeriesDataAdapter, value);
     }
 
-    //public SortedNumericDataAdapter? BallanceSeriesDataAdapter
-    //{
-    //    get => ballanceSeriesDataAdapter;
-    //    set => SetField(ref ballanceSeriesDataAdapter, value);
-    //}
-
+    
     public event PropertyChangedEventHandler? PropertyChanged;
 
     public decimal Principal
@@ -49,6 +46,44 @@ public sealed class MortgageCalculatorViewModel : INotifyPropertyChanged
             }
         }
     }
+
+    public bool IsStachkaVisitor
+    {
+        get => isStachkaVisitor;
+        set
+        {
+            if (SetField(ref isStachkaVisitor, value))
+            {
+                CalculatePercentAndMortgage();
+            }
+        }
+    }
+
+    public bool IsLinuxUser
+    {
+        get => isLinuxUser;
+        set
+        {
+            if (SetField(ref isLinuxUser, value))
+            {
+                CalculatePercentAndMortgage();
+            }
+        }
+    }
+
+
+    public bool IsItEnthusiast
+    {
+        get => isItEnthusiast;
+        set
+        {
+            if (SetField(ref isItEnthusiast, value))
+            {
+                CalculatePercentAndMortgage();
+            }
+        }
+    }
+
 
     public decimal AnnualInterestRate
     {
@@ -97,6 +132,19 @@ public sealed class MortgageCalculatorViewModel : INotifyPropertyChanged
         CalculateMortgage();
     }
 
+
+    private void CalculatePercentAndMortgage()
+    {
+        decimal baseInterest = 15;
+        if (IsItEnthusiast)
+            baseInterest += 5;
+        if (IsLinuxUser)
+            baseInterest -= 2;
+        if (IsStachkaVisitor)
+            baseInterest -= 2;
+        AnnualInterestRate = baseInterest;
+    }
+
     private void CalculateMortgage()
     {
         try
@@ -120,8 +168,6 @@ public sealed class MortgageCalculatorViewModel : INotifyPropertyChanged
         var argumentList = AmortizationSchedule.Select(s => (double)s.MonthNumber).ToList();
         InterestSeriesDataAdapter = new SortedNumericDataAdapter(argumentList, AmortizationSchedule.Select(s => (double)s.InterestAmount).ToList());
         PrincipialSeriesDataAdapter = new SortedNumericDataAdapter(argumentList, AmortizationSchedule.Select(s => (double)s.PrincipalAmount).ToList());
-        
-        //BallanceSeriesDataAdapter = new SortedNumericDataAdapter(argumentList, AmortizationSchedule.Select(s => (double)s.RemainingBalance/100).ToList());
 
     }
 

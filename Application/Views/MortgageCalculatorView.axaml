@@ -31,21 +31,34 @@ xmlns:col="using:System.Collections"
 				<Label VerticalAlignment="Center">USD</Label>
 			</StackPanel>
 
-			<Label>
+			<!--<Label>
 				Annual interest rate
 			</Label>
 			<StackPanel Orientation="Horizontal">
 				<Slider MinWidth="200" Margin="0,0,10,0" Minimum="10" Maximum="30" Value="{Binding AnnualInterestRate}"></Slider>
 				<mxe:TextEditor MinWidth="100" EditorValue="{Binding AnnualInterestRate}" DisplayFormatString="{} {0:F3}"></mxe:TextEditor>
-			</StackPanel>
+			</StackPanel>-->
 
 			<Label>
-				Loan term in years
+				Loan Term in Years
 			</Label>
 			<StackPanel Orientation="Horizontal">
 				<Slider MinWidth="200" Margin="0,0,10,0" Minimum="5" Maximum="30" Value="{Binding LoanTermYears}"></Slider>
 				<mxe:TextEditor MinWidth="100" EditorValue="{Binding LoanTermYears}"></mxe:TextEditor>
 			</StackPanel>
+
+			<StackPanel Margin="40,40,0,0" >
+			<CheckBox Content="Регулярно посещаю конференцию СТАЧКА" IsChecked="{Binding IsStachkaVisitor}" ></CheckBox>
+			<CheckBox Content="Использую Linux" IsChecked="{Binding IsLinuxUser}" IsEnabled="False"></CheckBox>
+		    <CheckBox Content="Включить айти ипотеку" IsChecked="{Binding IsItEnthusiast}"></CheckBox>
+
+			</StackPanel>
+			<Label Margin="0,10,0,0" HorizontalAlignment="Center" FontSize="16">
+				Your Annual Interest Rate is:
+			</Label>
+			<Label FontSize="39" HorizontalAlignment="Center" Content="{Binding AnnualInterestRate,StringFormat={}{0}%}">
+				
+			</Label>
 
 
 		</StackPanel>
