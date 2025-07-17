@@ -48,15 +48,15 @@ xmlns:col="using:System.Collections"
 			</StackPanel>
 
 			<StackPanel Margin="40,40,0,0" >
-			<CheckBox Content="Регулярно посещаю конференцию СТАЧКА" IsChecked="{Binding IsStachkaVisitor}" ></CheckBox>
-			<CheckBox Content="Использую Linux" IsChecked="{Binding IsLinuxUser}" IsEnabled="False"></CheckBox>
-		    <CheckBox Content="Включить айти ипотеку" IsChecked="{Binding IsItEnthusiast}"></CheckBox>
+			<CheckBox x:Name="isVisitorCheckBox" Content="Регулярно посещаю конференцию СТАЧКА" IsChecked="{Binding IsStachkaVisitor}" ></CheckBox>
+			<CheckBox x:Name="isLinuxUser" Content="Использую Linux" IsChecked="{Binding IsLinuxUser}" IsEnabled="False"></CheckBox>
+		    <CheckBox x:Name="isItEnthusiast" Content="Включить айти ипотеку" IsChecked="{Binding IsItEnthusiast}"></CheckBox>
 
 			</StackPanel>
 			<Label Margin="0,10,0,0" HorizontalAlignment="Center" FontSize="16">
 				Your Annual Interest Rate is:
 			</Label>
-			<Label FontSize="39" HorizontalAlignment="Center" Content="{Binding AnnualInterestRate,StringFormat={}{0}%}">
+			<Label x:Name="annualInterestRateLabel" FontSize="39" HorizontalAlignment="Center" Content="{Binding AnnualInterestRate,StringFormat={}{0}%}">
 				
 			</Label>
 

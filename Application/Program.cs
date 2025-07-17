@@ -1,7 +1,14 @@
 ﻿using Avalonia;
 using System;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("Tests")]
+[assembly: InternalsVisibleTo("UITests_AvaloniaHeadless")]
+[assembly: InternalsVisibleTo("UITests_E2E")]
 
 namespace MortgageCalculator;
+
+
 
 sealed class Program
 {

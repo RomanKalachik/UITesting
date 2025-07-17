@@ -23,7 +23,7 @@ public partial class App : Application
         {
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MortgageCalculatorViewModel() { IsLinuxUser = RuntimeInformation.IsOSPlatform(OSPlatform.Linux) }
+                DataContext = new MortgageCalculatorViewModel()
             };
         }
 

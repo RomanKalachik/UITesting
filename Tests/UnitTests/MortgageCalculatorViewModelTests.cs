@@ -13,7 +13,7 @@ public class MortgageCalculatorViewModelTests
         var vm = new MortgageCalculatorViewModel();
 
         Assert.Equal(300000m, vm.Principal);
-        Assert.Equal(4.5m, vm.AnnualInterestRate);
+        Assert.Equal(15m, vm.AnnualInterestRate);
         Assert.Equal(30, vm.LoanTermYears);
         Assert.True(vm.MonthlyPayment > 0);
         Assert.NotEmpty(vm.AmortizationSchedule);

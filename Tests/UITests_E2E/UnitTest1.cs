@@ -1,5 +1,6 @@
 ﻿using Avalonia.Controls;
 using MortgageCalculator.Views;
+using UITests_E2E.Fixture;
 
 namespace UITests;
 
@@ -9,6 +10,6 @@ public class UnitTest1
     public async Task SimpleTest()
     {
         Window window = new MainWindow();
-        await window.ShowDialog(null);
+        await window.ShowDialog(AvaloniaApp.GetMainWindow());
     }
 }

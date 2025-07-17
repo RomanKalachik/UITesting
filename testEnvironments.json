@@ -1,0 +1,10 @@
+﻿{
+  "version": "1",
+  "environments": [
+    {
+      "name": "docker-linux",
+      "type": "docker",
+      "dockerImage": "mcr.microsoft.com/dotnet/sdk:8.0.406-jammy"
+    }
+  ]
+}
