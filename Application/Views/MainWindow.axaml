@@ -9,7 +9,7 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" Width="940" Height="600"
         x:Class="MortgageCalculator.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="uitesting">
+        Title="Sample Mortgage Calculator">
 
 	<views:MortgageCalculatorView></views:MortgageCalculatorView>
 </mx:MxWindow>

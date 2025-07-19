@@ -14,7 +14,8 @@ public sealed class MortgageCalculatorViewModel : INotifyPropertyChanged
     private decimal _annualInterestRate = 15;
     private int _loanTermYears = 30;
     private decimal _monthlyPayment;
-    private bool isStachkaVisitor, isLinuxUser, isItEnthusiast;
+    private bool isStachkaVisitor, isLinuxUser;
+    private string promocode;
 
     private List<PaymentDetail> _amortizationSchedule = new();
     private PaymentDetail? _selectedPaymentDetail;
@@ -73,12 +74,12 @@ public sealed class MortgageCalculatorViewModel : INotifyPropertyChanged
     }
 
 
-    public bool IsItEnthusiast
+    public string PromoCode
     {
-        get => isItEnthusiast;
+        get => promocode;
         set
         {
-            if (SetField(ref isItEnthusiast, value))
+            if (SetField(ref promocode, value))
             {
                 CalculatePercentAndMortgage();
             }
@@ -138,12 +139,12 @@ public sealed class MortgageCalculatorViewModel : INotifyPropertyChanged
     private void CalculatePercentAndMortgage()
     {
         decimal baseInterest = 15;
-        if (IsItEnthusiast)
-            baseInterest += 5;
-        if (IsLinuxUser)
-            baseInterest -= 2;
+        if (PromoCode?.ToUpper() == "SALE")
+            baseInterest -= 3;
         if (IsStachkaVisitor)
             baseInterest -= 2;
+        if (IsLinuxUser)
+            baseInterest -= 1;
         AnnualInterestRate = baseInterest;
     }
 
