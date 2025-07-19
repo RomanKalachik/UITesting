@@ -1,4 +1,4 @@
-﻿using System;
+﻿	using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Threading;
@@ -87,7 +87,7 @@ namespace UITests_E2E.Fixture
 							.BuildAvaloniaApp()
 							.AfterSetup(_ =>
 							{
-								tcs.SetResult(SynchronizationContext.Current!);
+								tcs.SetResult(SynchronizationContext.Current);
 							})
 							.StartWithClassicDesktopLifetime(new string[0]);
 					}

@@ -2,7 +2,7 @@
 using System;
 using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("Tests")]
+[assembly: InternalsVisibleTo("UnitTests")]
 [assembly: InternalsVisibleTo("UITests_AvaloniaHeadless")]
 [assembly: InternalsVisibleTo("UITests_E2E")]
 

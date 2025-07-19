@@ -48,8 +48,8 @@ xmlns:col="using:System.Collections"
 			</StackPanel>
 
 			<StackPanel Margin="40,40,0,0" >
-			<CheckBox x:Name="isVisitorCheckBox" Content="Регулярно посещаю конференцию СТАЧКА" IsChecked="{Binding IsStachkaVisitor}" ></CheckBox>
-			<CheckBox x:Name="isLinuxUser" Content="Использую Linux" IsChecked="{Binding IsLinuxUser}" IsEnabled="False"></CheckBox>
+				<mxe:CheckEditor x:Name="isVisitorCheckBox" Content="Регулярно посещаю конференцию СТАЧКА" IsChecked="{Binding IsStachkaVisitor}" />
+				<mxe:CheckEditor x:Name="isLinuxUser" Content="Использую Linux" IsChecked="{Binding IsLinuxUser}" IsEnabled="False"/>
 				<mxe:TextEditor x:Name="promocodeText" Watermark="Введите промокод" EditorValue="{Binding PromoCode}"/>
 
 			</StackPanel>

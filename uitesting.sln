@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{02EA681E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UITests_E2E", "Tests\UITests_E2E\UITests_E2E.csproj", "{AEB941C7-3D11-585F-7170-2BBF8EA51DD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\UnitTests\Tests.csproj", "{A9120FF7-BAF2-8EE5-8429-85BFD7B20FD9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "Tests\UnitTests\UnitTests.csproj", "{A9120FF7-BAF2-8EE5-8429-85BFD7B20FD9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UITests_AvaloniaHeadless", "Tests\UITests_Headless\UITests_AvaloniaHeadless.csproj", "{C82FFC6B-A412-A3F8-CBE4-0B9C6C846620}"
 EndProject

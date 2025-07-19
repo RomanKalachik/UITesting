@@ -1,5 +1,4 @@
-﻿// MortgageCalculatorViewModelTests.cs
-using Xunit;
+﻿using Xunit;
 using System.ComponentModel;
 using MortgageCalculator.ViewModels;
 

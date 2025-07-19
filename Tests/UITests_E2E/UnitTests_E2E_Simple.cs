@@ -1,11 +1,12 @@
-﻿using Avalonia.Headless;
-using Avalonia.Headless.XUnit;
+﻿using Avalonia.Controls;
+using Avalonia.Input;
+using Eremex.AvaloniaUI.Controls.Editors;
 using MortgageCalculator.ViewModels;
 using MortgageCalculator.Views;
 
-namespace UITests;
+namespace UITests_E2E;
 
-public class UnitTests_Headless
+public class UnitTests_E2E_Simple
 {
 
     private static MainWindow CreateAndShowWindow()
@@ -18,65 +19,64 @@ public class UnitTests_Headless
         return result;
     }
 
-    [AvaloniaFact]
+    [Fact]
     public void Simple_Show()
     {
         MainWindow window = CreateAndShowWindow();
         window.Show();
-        var frame = window.CaptureRenderedFrame();
-        frame.Save("simple.png");
+        //TODO
+
+        window.Close();
     }
 
-   [AvaloniaFact]
+    [Fact]
     public void Simple_Window_Bounds()
     {
         MainWindow window = CreateAndShowWindow();
         window.Show();
         Assert.Equal(0, window.Position.X);
         Assert.Equal(0, window.Position.Y);
+        window.Close();
     }
 
 
-    [AvaloniaFact]
+    [Fact]
     public void Test_OS_Linux()
     {
         MainWindow window = CreateAndShowWindow();
         Assert.True((window.Content as MortgageCalculatorView)?.isLinuxUser.IsChecked);
+        window.Close();
+
     }
 
-    [AvaloniaFact]
+    [Fact]
     public void Test_OS_Windows()
     {
         MainWindow window = CreateAndShowWindow();
         Assert.False((window.Content as MortgageCalculatorView)?.isLinuxUser.IsChecked);
+        window.Close();
+
     }
 
-    [AvaloniaFact]
+    [Fact]
     public void Test_Visitor()
     {
         MainWindow window = CreateAndShowWindow();
         MortgageCalculatorView view = window.Content as MortgageCalculatorView;
         view.isVisitorCheckBox.IsChecked = true;
         Assert.Equal("13%", view.annualInterestRateLabel.Content);
+        window.Close();
+
     }
 
-    [AvaloniaFact]
+    [Fact]
     public void Test_PromoCode()
     {
         MainWindow window = CreateAndShowWindow();
         MortgageCalculatorView view = window.Content as MortgageCalculatorView;
         view.promocodeText.EditorValue = "sale";
         Assert.Equal("12%", view.annualInterestRateLabel.Content);
-    }
+        window.Close();
 
-    [AvaloniaFact]
-    public void Test_PromoCode_KeyTextInput()
-    {
-        MainWindow window = CreateAndShowWindow();
-        MortgageCalculatorView view = window.Content as MortgageCalculatorView;
-        window.Activate();
-        view.promocodeText.Focus();
-        window.KeyTextInput("sale");
-        Assert.Equal("12%", view.annualInterestRateLabel.Content);
     }
 }

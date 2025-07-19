@@ -1,15 +1,12 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Input.Raw;
-
 using Xunit;
 
-namespace Avalonia.TestUtls;
+namespace UITests_E2E.E2E_Adapters;
 
 public static class V11TestUtils
 {
@@ -29,7 +26,7 @@ public static class V11TestUtils
 		return Create<RawTextInputEventArgs>(args);
 	}
 	
-	public static RawKeyEventArgs CreateRawKeyEventArgs(IInputRoot root, RawKeyEventType eventType, Key key, RawInputModifiers modifiers, string keySymbol = "")
+	public static RawKeyEventArgs CreateRawKeyEventArgs(IInputRoot root, RawKeyEventType eventType, Key key, RawInputModifiers modifiers)
 	{
 		var keyboardDevice = GetKeyboardDevice()!;
 		ulong timestamp = (ulong)(DateTime.Now - new DateTime(1970, 1, 1)).TotalMilliseconds;
@@ -40,9 +37,7 @@ public static class V11TestUtils
 			typeof(IInputRoot),
 			typeof(RawKeyEventType),
 			typeof(Key),
-			typeof(RawInputModifiers),
-			typeof(PhysicalKey),
-			typeof(string)
+			typeof(RawInputModifiers)
 		};
 		object[] args =
 		{
@@ -51,10 +46,7 @@ public static class V11TestUtils
 			root,
 			eventType,
 			key,
-			modifiers,
-			PhysicalKey.None,
-			keySymbol
-			
+			modifiers
 		};
 		return Create<RawKeyEventArgs>(args, types);
 	}
