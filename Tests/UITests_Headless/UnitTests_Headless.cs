@@ -24,7 +24,7 @@ public class UnitTests_Headless
         MainWindow window = CreateAndShowWindow();
         window.Show();
         var frame = window.CaptureRenderedFrame();
-        frame.Save("simple.png");
+        frame.Save("!simple.png");
     }
 
    [AvaloniaFact]

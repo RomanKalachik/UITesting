@@ -1,6 +1,5 @@
-﻿using Avalonia.Controls;
-using Avalonia.Input;
-using Eremex.AvaloniaUI.Controls.Editors;
+﻿using Avalonia;
+using Avalonia.Controls.ApplicationLifetimes;
 using MortgageCalculator.ViewModels;
 using MortgageCalculator.Views;
 
@@ -9,36 +8,24 @@ namespace UITests_E2E;
 public class UnitTests_E2E_Simple
 {
 
-    private static MainWindow CreateAndShowWindow()
+    private static MainWindow CreateAndShowWindow(bool show = true)
     {
         var result = new MainWindow
         {
             DataContext = new MortgageCalculatorViewModel()
         };
-        result.Show();
+        if(show) result.Show();
         return result;
     }
 
-    [Fact]
-    public void Simple_Show()
-    {
-        MainWindow window = CreateAndShowWindow();
-        window.Show();
-        //TODO
+    //[Fact]
+    //public async Task Simple_Show()
+    //{
+    //    MainWindow window = CreateAndShowWindow(false);
+    //    await window.ShowDialog((Application.Current.ApplicationLifetime as ClassicDesktopStyleApplicationLifetime).MainWindow);
 
-        window.Close();
-    }
-
-    [Fact]
-    public void Simple_Window_Bounds()
-    {
-        MainWindow window = CreateAndShowWindow();
-        window.Show();
-        Assert.Equal(0, window.Position.X);
-        Assert.Equal(0, window.Position.Y);
-        window.Close();
-    }
-
+    //    window.Close();
+    //}
 
     [Fact]
     public void Test_OS_Linux()

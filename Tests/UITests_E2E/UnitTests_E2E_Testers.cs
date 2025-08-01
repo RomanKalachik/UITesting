@@ -6,7 +6,7 @@ using UITests_E2E.E2E_Adapters;
 
 namespace UITests_E2E;
 
-public class UnitTests_E2E
+public class UnitTests_E2E_Testers
 {
     public MainWindowAdapter RootAdapter { get; private set; }
 
